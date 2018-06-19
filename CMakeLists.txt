@@ -14,7 +14,7 @@ set(INSTALL_INC_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_SYSTEM_NAME}/include" CACHE
 set(INSTALL_MAN_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_SYSTEM_NAME}/share/man" CACHE PATH "Installation directory for manual pages")
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_SYSTEM_NAME}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -v")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -v -DZ_SOLO -DNO_GZCOMPRESS -DNO_GZIP")
 
 include(CheckTypeSize)
 include(CheckFunctionExists)
@@ -99,7 +99,6 @@ set(ZLIB_PUBLIC_HDRS
 set(ZLIB_PRIVATE_HDRS
     crc32.h
     deflate.h
-    gzguts.h
     inffast.h
     inffixed.h
     inflate.h
@@ -112,10 +111,6 @@ set(ZLIB_SRCS
     compress.c
     crc32.c
     deflate.c
-    gzclose.c
-    gzlib.c
-    gzread.c
-    gzwrite.c
     inflate.c
     infback.c
     inftrees.c
